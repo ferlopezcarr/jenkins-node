@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('Configure') {
+            steps {
+                git 'https://github.com/ferlopezcarr/basic-web-template.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh '''
+                echo "doing build stuff.."
+                '''
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'npm a'
+            }
+        }
+    }
+}
